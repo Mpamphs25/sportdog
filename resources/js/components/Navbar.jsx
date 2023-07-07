@@ -50,7 +50,8 @@ export default function Navbar()
                         <ul className="lg:mr-12  hidden w-screen lg:w-full h-screen flex flex-col gap-5 lg:gap-0 lg:h-auto lg:justify-center  bg-blue-900 lg:flex  lg:flex-row lg:bg-white  " id="navBar">
                             {menuLinks.map((link)=>{
                                 const {id,href,styleLink,label} = link;
-                                return <Link key={id} href={href} className={styleLink}>{label}</Link>
+                              
+                                return <Link  key={id} href={`/category/${href}`} className={styleLink}>{label}</Link>
                             })}
                         </ul>
                     </div>

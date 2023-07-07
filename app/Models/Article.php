@@ -12,12 +12,18 @@ class Article extends Model
     use HasFactory;
 
    
-    // protected $with = ['category'];
+   protected $with = ['category','author'];
 
-    public function categories()
+    public function category()
     {
         
         return $this->belongsTo(Category::class);
+    }
+
+    public function author()
+    {
+        
+        return $this->belongsTo(Author::class);
     }
 
     public function text():Attribute
