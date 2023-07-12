@@ -1,16 +1,24 @@
-import { useState,useEffect } from 'react';
-import { Link } from '@inertiajs/react';
+import { useState } from 'react';
+
+import { Link,useForm,router } from '@inertiajs/react';
 import {FaSearch,FaWindowClose,FaBars} from "react-icons/fa";
 import {menuLinks} from '../data.js'
 
 export default function Navbar()
-{
+{   
+
+    const {errors,data,setData,get} = useForm({
+        search:''
+    })
+  
     const [showMenu,setShowMenu] = useState(false);
-    // const [showSearch,setShowSearch] = useState(false);
+    
     const [hideMenu,setHideMenu] = useState(true);
   
-   const handleSearch = () => {
-         
+   const handleSearch = (e) => {
+    e.preventDefault()
+    get('/')
+  
    }
 
  
@@ -57,9 +65,9 @@ export default function Navbar()
                     </div>
                 
                     <div className="hidden lg:flex   lg:absolute lg:top-full lg:left-1/3  2xl:static " id="form-container">    
-                             <form action="/"  className='lg:relative  lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700 '> 
+                             <form onSubmit={handleSearch} action="/"  className='lg:relative  lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700 '> 
                                 <div className=' xl:flex  border-sky-700 '>
-                                    <input placeholder='search' type="text" id="search" className='lg:w-96 2xl:w-48   '/> 
+                                    <input placeholder='search' name="search" type="text" id="search" className='lg:w-96 2xl:w-48' onChange={(e)=> setData('search',e.target.value)}/> 
                                     <button><FaSearch className=' font-thin text-sky-700 lg:absolute  lg:right-0.5 lg:top-0.5'/></button>
                                     
                                 </div>                      

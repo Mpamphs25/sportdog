@@ -2,12 +2,13 @@ import React,{useState} from 'react'
 import { Link } from '@inertiajs/react';
 
 import Socials from '../../components/Socials';
+import Pagination from '../../components/Pagination';
 
 export default function Index(props) {
     const [show,setShow] = useState(false)
    
     const {articles,twoArticles} = props
-    
+    console.log(articles)
   return (
     <section className='max-w-5xl mx-auto'>
         <h1 className='text-5xl mb-12'>{props.twoArticles[0].category.title}</h1>
@@ -16,7 +17,7 @@ export default function Index(props) {
             {
                 twoArticles.map((article) => {
                     const {category,slug,title,description,author} = article
-                    return <article key={article.id} className='col-span-4' >
+                    return <article key={article.id} className='col-span-8 lg:col-span-4' >
                           <div style={{backgroundImage: `url('/images/ball.jpg')`}} className='h-80 lg:max-w-7xl   bg-cover bg-repeat bg-center  lg:h-96 flex  flex-col items-start justify-end  gap-2 '>
                             <Socials show={show}/>
                             <Link  href={route('categories.index', [category['slug']])} as="button" className='px-3 py-1 bg-white ml-3 font-bold'>{category.title}</Link>
@@ -30,11 +31,12 @@ export default function Index(props) {
 
           
         </div>
-        <div className=' grid sm:grid-cols-2 lg:grid-cols-3 gap-y-2 mx-auto place-items-center mt-12'>
+        <div className=' grid sm:grid-cols-2 lg:grid-cols-3 gap-y-2 mx-auto gap-3 mt-12'>
+            
         {
                 articles.data.map((article)=>{
                     const {category,slug,title,text,author,date} = article
-                    return <article key={article.id} className='w-64'>
+                    return <article key={article.id} >
                         
                         <div className='relative'>  
                             <img className=" border-4 border-sky-600 relative" src="/images/ball.jpg" alt={title}/>          
@@ -58,6 +60,9 @@ export default function Index(props) {
                 })
             }
         </div>
+  
+        <Pagination  data={articles}/>
+      
     </section>
   )
 }

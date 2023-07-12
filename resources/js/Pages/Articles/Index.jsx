@@ -10,7 +10,8 @@ import MiddleSection from '../../components/MiddleSection/MiddleSection.jsx';
 import MiddleSectionThree from '../../components/MiddleSectionThree/MiddleSectionThree.jsx';
 import SLider from '../../components/Slider/SLider.jsx';
 import Life from '../../components/Life/Life.jsx';
-export default function Articles({articles,twoArticles,skipTwoArticles,skipFourArticles,skipFourteenArticles,skipEighteenArticles}) {
+export default function Articles({articles,twoArticles,skipTwoArticles,skipFourArticles,skipFourteenArticles,skipEighteenArticles,art}) {
+  console.log(art)
 
    const [newItems,setNewItems] = useState(twoArticles)
    const [newItemsThree,setNewItemsThree] = useState(skipTwoArticles)
