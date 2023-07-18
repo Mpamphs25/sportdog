@@ -2,7 +2,7 @@ import React from 'react'
 import Card from './Card.jsx';
 import BigCard from './BigCard.jsx';
 export default function MiddleSection({restItems}) {
-  console.log(restItems)
+
   return (
    
     <section className='max-w-screen-xl mx-auto grid sm:grid-cols-4 lg:grid-cols-8 gap-3 mt-20'>

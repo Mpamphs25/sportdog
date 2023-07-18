@@ -22,7 +22,7 @@ class Article extends Model
 
     public function author()
     {
-        
+        //change
         return $this->belongsTo(Author::class);
     }
 
@@ -34,7 +34,7 @@ class Article extends Model
     }
 
 
-
+    
     public function title():Attribute
     {
         return Attribute::make(
@@ -42,10 +42,31 @@ class Article extends Model
             get:fn(string $value) => html_entity_decode(strip_tags($value))
         );
     }
+    
     public function description():Attribute
     {
         return Attribute::make(
             get:fn(string $value) => html_entity_decode(strip_tags($value))
         );
     }
+
+    public function scopeMostRecent($query)
+    {
+        return $query->orderByDesc('timestamp');
+    }
+
+    
+    public function scopeCustomSearchArticles($query, array $filters)
+    {
+     
+        $query->when($filters['search'] ?? false, fn($query,$search) => 
+            $query->where('title','like', '%'. $search. '%')
+            ->orWhere('text','like', '%'. $search. '%')
+            ->orWhereHas('author', fn($query)=>
+            $query->where('title', 'like',  '%' .$search. '%'))
+        );      
+    }
+
 }
+
+

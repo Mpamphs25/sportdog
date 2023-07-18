@@ -1,5 +1,6 @@
 import { createInertiaApp } from '@inertiajs/react'
-import { createRoot } from 'react-dom/client'
+import { createRoot,hydrateRoot } from 'react-dom/client'
+
 // import route from 'ziggy'
 // import { Ziggy } from './ziggy';
 import Layout from './Pages/Layout'
@@ -15,7 +16,7 @@ createInertiaApp({
     return page
   },
   setup({ el, App, props }) {
-    createRoot(el).render(<App {...props} />)
+    hydrateRoot(el).render(<App {...props} />)
   },
 })
 

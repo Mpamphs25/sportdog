@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 
 import Card from '../../components/Card.jsx';
 import Maincard from '../../components/Maincard.jsx'
@@ -10,8 +10,7 @@ import MiddleSection from '../../components/MiddleSection/MiddleSection.jsx';
 import MiddleSectionThree from '../../components/MiddleSectionThree/MiddleSectionThree.jsx';
 import SLider from '../../components/Slider/SLider.jsx';
 import Life from '../../components/Life/Life.jsx';
-export default function Articles({articles,twoArticles,skipTwoArticles,skipFourArticles,skipFourteenArticles,skipEighteenArticles,art}) {
-  console.log(art)
+export default function Articles({articles,twoArticles,skipTwoArticles,skipFourArticles,skipFourteenArticles,skipEighteenArticles}) {
 
    const [newItems,setNewItems] = useState(twoArticles)
    const [newItemsThree,setNewItemsThree] = useState(skipTwoArticles)
@@ -22,9 +21,11 @@ export default function Articles({articles,twoArticles,skipTwoArticles,skipFourA
    const [bets,setBets] = useState(articles.slice(-9))
    const [life,setLife] = useState(articles.slice(0,10))  
 
+   console.log(articles)
+   
     return ( 
       <> 
-    
+       
           <Section>
               <div className='lg:flex lg:gap-7 '>
                     {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link,useForm,router } from '@inertiajs/react';
 import {FaSearch,FaWindowClose,FaBars} from "react-icons/fa";
@@ -17,9 +17,11 @@ export default function Navbar()
   
    const handleSearch = (e) => {
     e.preventDefault()
-    get('/')
+    get('/search')
+    
   
    }
+
 
  
    const handlemenuOpen = () => {
@@ -65,7 +67,7 @@ export default function Navbar()
                     </div>
                 
                     <div className="hidden lg:flex   lg:absolute lg:top-full lg:left-1/3  2xl:static " id="form-container">    
-                             <form onSubmit={handleSearch} action="/"  className='lg:relative  lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700 '> 
+                             <form onSubmit={handleSearch} action="search"   className='lg:relative  lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700 '> 
                                 <div className=' xl:flex  border-sky-700 '>
                                     <input placeholder='search' name="search" type="text" id="search" className='lg:w-96 2xl:w-48' onChange={(e)=> setData('search',e.target.value)}/> 
                                     <button><FaSearch className=' font-thin text-sky-700 lg:absolute  lg:right-0.5 lg:top-0.5'/></button>

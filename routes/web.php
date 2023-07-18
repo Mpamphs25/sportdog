@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\ArticleSearchController;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Category;
@@ -21,9 +22,10 @@ use Inertia\Inertia;
 
 Route::get('/', [ArticleController::class,'index'])->name('articles.index');
 Route::get('article/{article:slug}',[ArticleController::class,'show'])->name('article.index');
-Route::get('/test',[ArticleController::class,'ga4']); 
+Route::get('/test',[ArticleController::class,'test']); 
 
 
 
  Route::get('category/{category:slug}',[CategoryController::class,'index'])->name('categories.index');
  Route::get('author/{author:slug}',[AuthorController::class,'index'])->name('authors.index');
+ Route::get('/search',[ArticleSearchController::class,'index'])->name('search.index');
