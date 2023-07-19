@@ -5,7 +5,7 @@ import Socials from './Socials';
 export default function Maincardsmall({text,title,slug,category,author,date})
 {
     const [show,setShow] = useState(false)
-    // const {slug} = author;
+    
      return(
       
         <article className=' lg:max-w-sm lg:flex lg:items-center lg:flex-col lg:gap-2 lg:w-1/4 relative '  onMouseEnter={() => !show ? setShow(true) : setShow(false)} onMouseLeave={() => !show ? setShow(true) : setShow(false)} >   

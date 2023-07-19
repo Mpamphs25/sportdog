@@ -1,7 +1,8 @@
 import React, {  useEffect, useState } from 'react';
 
 import Card from '../../components/Card.jsx';
-import Maincard from '../../components/Maincard.jsx'
+import Maincard from '../../components/Maincard.jsx';
+import CardWithBgImg from '../../components/CardWithBgImg.jsx';
 import Widget from '../../components/Widget.jsx';
 import MiddleSectionTwo from '../../components/MiddleSectionTwo/MiddleSectionTwo.jsx';
 import Section from '../../components/Section.jsx';
@@ -21,7 +22,7 @@ export default function Articles({articles,twoArticles,skipTwoArticles,skipFourA
    const [bets,setBets] = useState(articles.slice(-9))
    const [life,setLife] = useState(articles.slice(0,10))  
 
-   console.log(articles)
+ 
    
     return ( 
       <> 
@@ -31,7 +32,12 @@ export default function Articles({articles,twoArticles,skipTwoArticles,skipFourA
                     {
                       newItems.map((article,index)=>{
                         const {id,text,title,description,slug,category,author,date} = article; 
-                        return  <Maincard key={id} text={text} title={title} slug={slug} author={author} date={date} category={category} description={description} index={index}/>
+                        if(index === 0) {
+                          return  <CardWithBgImg key={id} customWidth='lg:w-3/6' customBmImg='/images/ball.jpg' text={text} title={title} slug={slug} author={author} date={date} category={category} description={description} index={index}/>
+                        }else{
+                          return  <Card key={id}  customBgSky='bg-sky-100' customWidth='lg:w-1/4'  text={text} title={title} author={author} date={date} category={category} slug={slug} description={description} />
+                        }
+                       
                       })
                     }
                 </div> 
@@ -44,8 +50,9 @@ export default function Articles({articles,twoArticles,skipTwoArticles,skipFourA
                     {  newItemsThree.map((article,index) => {
                       const {id,text,title,description,slug,category,author,date} = article; 
                     
-                      return  <Card key={id} text={text} title={title} author={author} date={date} category={category} slug={slug} description={description} />
-                      })}
+                      return  <Card key={id} customBmImg='/images/ball.jpg' customBgSky='bg-sky-100' customWidth='sm:w-6/12' text={text} title={title} author={author} date={date} category={category} slug={slug} description={description} />
+                      })
+                    }
 
                   
                   </div>     

@@ -4,7 +4,7 @@ import Socials from '../Socials';
 export default function Card({ slug, text, title,category,date,author }) {
   const [show,setShow] = useState(false)
   return (
-    //h-64
+
  <div className='relative'  onMouseEnter={() => !show ? setShow(true) : setShow(false)} onMouseLeave={() => !show ? setShow(true) : setShow(false)}>  
     <img className="  relative" src="/images/ball.jpg" alt={title} />          
     <Socials  show={show}/> 
