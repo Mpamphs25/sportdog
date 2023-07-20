@@ -54,8 +54,7 @@ export default function Navbar()
                     </div>
                 </div>    
 
-                <div className='flex    lg:justify-end lg:items-center gap-10'>
-                   
+                <div className='flex lg:justify-end lg:items-center gap-10'>
                     <div className=' flex '> 
                         <ul className="lg:mr-12  hidden w-screen lg:w-full h-screen flex flex-col gap-5 lg:gap-0 lg:h-auto lg:justify-center  bg-blue-900 lg:flex  lg:flex-row lg:bg-white  " id="navBar">
                             {menuLinks.map((link)=>{
@@ -67,9 +66,11 @@ export default function Navbar()
                     </div>
                 
                     <div className="hidden lg:flex   lg:absolute lg:top-full lg:left-1/3  2xl:static " id="form-container">    
-                             <form onSubmit={handleSearch} action="search"   className='lg:relative  lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700 '> 
+                             <form onSubmit={handleSearch} action="search"   className='lg:relative
+                               lg:mx-auto lg:mt-2 2xl:my-0   border-2 rounded border-sky-700'> 
                                 <div className=' xl:flex  border-sky-700 '>
-                                    <input placeholder='search' name="search" type="text" id="search" className='lg:w-96 2xl:w-48' onChange={(e)=> setData('search',e.target.value)}/> 
+                                    <input placeholder='search' name="search" type="text" id="search" className='lg:w-96 2xl:w-48'
+                                     onChange={(e)=> setData('search',e.target.value)}/> 
                                     <button><FaSearch className=' font-thin text-sky-700 lg:absolute  lg:right-0.5 lg:top-0.5'/></button>
                                     
                                 </div>                      

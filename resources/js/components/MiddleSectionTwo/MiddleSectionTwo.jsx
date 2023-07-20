@@ -1,5 +1,6 @@
 import React from 'react'
 import Cards from './Cards'
+import Card from '../Card.jsx'
 
 export default function MiddleSectionTwo({newRestItemsTwo}) {
   return (
@@ -7,7 +8,7 @@ export default function MiddleSectionTwo({newRestItemsTwo}) {
     
         {
             newRestItemsTwo.map((item) =>{
-                return <Cards key={item.id} {...item}/>
+                 return <Card key={item.id} {...item}/>
             })
         }
     </section>

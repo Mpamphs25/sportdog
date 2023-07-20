@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 
 import Card from '../../components/Card.jsx';
-import Maincard from '../../components/Maincard.jsx';
+
 import CardWithBgImg from '../../components/CardWithBgImg.jsx';
 import Widget from '../../components/Widget.jsx';
 import MiddleSectionTwo from '../../components/MiddleSectionTwo/MiddleSectionTwo.jsx';

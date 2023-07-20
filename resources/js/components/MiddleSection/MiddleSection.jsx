@@ -1,6 +1,8 @@
 import React from 'react'
-import Card from './Card.jsx';
-import BigCard from './BigCard.jsx';
+// import Card from './Card.jsx';
+import Card from '../Card.jsx';
+
+import CardWithBgImg from '../CardWithBgImg.jsx';
 export default function MiddleSection({restItems}) {
 
   return (
@@ -16,7 +18,8 @@ export default function MiddleSection({restItems}) {
                 return  (    
                     
                          <div className=' sm:col-span-2 sm:row-span-2  self-stretch justify-self-stretch ' key={id} >
-                                <BigCard slug={slug} description={description} title={title} category={category} author={author} />
+                               
+                                <CardWithBgImg  slug={slug} description={description} title={title} category={category} author={author} customHeight='700px'/>
                          </div>
                        )}
             if(index === 3){

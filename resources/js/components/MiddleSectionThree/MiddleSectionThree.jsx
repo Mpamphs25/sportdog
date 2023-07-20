@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './Card'
+import Card from '../Card.jsx'
 import ReadMoreButton from '../ReadMoreButton'
 import SliderSmall from '../Slider/SliderSmall'
 export default function MiddleSectionThree({newRestItemsFour,bets}) {
