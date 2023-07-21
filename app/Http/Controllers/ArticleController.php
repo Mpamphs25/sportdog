@@ -9,21 +9,37 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Str;
 
 use Illuminate\Support\Collection; 
 
 
-
+///category/podosfairo/article/ki-omws-ta-hellip-ekane-o-lineker
 
 class ArticleController extends Controller
 {
     public function test(){
        
+        $article= Article::mostRecent()->getArticles();
+    
+         foreach($article as $val){
         
-        $authors = Author::first()->posts;
-        ddd($authors);
-        return Article::mostRecent()->search('title')->paginate(10);
+           $articleSlug='category/'. $val->category->slug .'/article/'. $val->slug;
+           $val->slug =  $articleSlug;
+          }
+  
+        //   foreach($article as $s){
+        //     echo  "<br>". var_dump($s) . "<br>";
+        //   }
+          
+       foreach($article as $sl){
+         echo  "<br>". var_dump($sl->slug) . "<br>";
+       }
+    //   $article = json_encode($article);
+    //  $article = json_Decode($article);
+    //         print_r($article->path);
+    //   dd($article->path);
+        // return Article::mostRecent()->search('title')->paginate(10);
     }
 
     public function index(){

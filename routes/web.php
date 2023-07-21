@@ -24,8 +24,8 @@ Route::get('/', [ArticleController::class,'index'])->name('articles.index');
 Route::get('article/{article:slug}',[ArticleController::class,'show'])->name('article.index');
 Route::get('/test',[ArticleController::class,'test']); 
 
+Route::get('/category/{category:slug?}/article/{article:slug?}',[ArticleController::class,'test']); 
 
-
- Route::get('category/{category:slug}',[CategoryController::class,'index'])->name('categories.index');
- Route::get('author/{author:slug}',[AuthorController::class,'index'])->name('authors.index');
- Route::get('/search',[ArticleSearchController::class,'index'])->name('search.index');
+Route::get('category/{category:slug}',[CategoryController::class,'index'])->name('categories.index');
+Route::get('author/{author:slug}',[AuthorController::class,'index'])->name('authors.index');
+Route::get('/search',[ArticleSearchController::class,'index'])->name('search.index');

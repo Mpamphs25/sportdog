@@ -67,6 +67,14 @@ class Article extends Model
         );      
     }
 
+    public function scopeGetArticles($query){
+        return $query->select(
+            // 'id', 'date','slug','title','description','text','category_id','author_id'
+            'id', 'date','slug','title','category_id','author_id'
+        )
+        ->with(['category','author'])->limit(20)->get();
+        // ->paginate(20);
+    }
 }
 
 
