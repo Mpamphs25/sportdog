@@ -3,45 +3,43 @@ import SliderBig from './SliderBig'
 import SliderMedium from './SliderMedium'
 import SliderSmall from './SliderSmall'
 
+
+
 export default function SliderItem({bets}) {
+    const isDesktop1 = window.innerWidth >=1024 ;
+const  isLaptop1 = window.innerWidth >= 508 && window.innerWidth < 1023;
+const isMobile1 =window.innerWidth <508 ;
+
     const [sliderBetsMedium,setSliderBetsMedium] = useState(bets.slice(0,bets.length-1))
-    const [isDesktop,setDesktop] = useState(window.innerWidth >=1024)
-    const [isLaptop,setLaptop] = useState(window.innerWidth >= 508 && window.innerWidth < 1023)
-    const [isMobile,setIsMobile] = useState(window.innerWidth < 508)
-    const updateMediaDesktop = () =>{
-        setDesktop(window.innerWidth >= 1024)
-    }
-
-    const updateMediaLaptop = () =>{
-        setLaptop(window.innerWidth >= 508 && window.innerWidth < 1023)
-    }
-    const updateMobile = () => {
-        setIsMobile(window.innerWidth < 508)
-    }
-    useEffect(()=>{
-        window.addEventListener('resize',updateMediaDesktop);
-        return () => window.removeEventListener('resize',updateMediaDesktop)
-    },[isDesktop])
+    const [device,setDevice] = useState()
 
     useEffect(()=>{
-        window.addEventListener('resize',updateMediaLaptop);
-        return () => window.removeEventListener('resize',updateMediaLaptop )
-    },[isLaptop])
+        window.addEventListener('resize',findDeviceType)
+        // return ()=>window.removeEventListener('resize',findDeviceType)
+    },[device])
 
+    const findDeviceType = () =>{
+        if(window.innerWidth < 508){
+            setDevice(isMobile1)
+        }
 
-    useEffect(()=>{
-        window.addEventListener('resize',updateMobile)
-        return ()=>window.removeEventListener('resize',updateMobile)
-    },[isMobile])
+        if(window.innerWidth >= 508 && window.innerWidth < 1023){
+            setDevice(isLaptop1)
+        }
 
-    if(isMobile){
+        if(window.innerWidth >=1024 ){
+            setDevice(isDesktop1)
+        }
+    }
+ 
+    if(isMobile1){
         return <SliderSmall bets={bets}/>
     }
-    if(isLaptop) {
+    if(isLaptop1) {
         return <SliderMedium bets={sliderBetsMedium}/>
     }
    
-    if(isDesktop){
+    if(isDesktop1){
         return <SliderBig bets={bets}/>
     }
 }

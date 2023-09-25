@@ -1,7 +1,8 @@
 import React from 'react'
-import Card from './Card'
+import Card from '../Card.jsx'
 import ReadMoreButton from '../ReadMoreButton'
-export default function MiddleSectionThree({newRestItemsFour}) {
+import SliderSmall from '../Slider/SliderSmall'
+export default function MiddleSectionThree({newRestItemsFour,bets}) {
   return ( 
     
     <section className='max-w-screen-xl mx-auto flex flex-col sm:flex-row justify-between gap-2 mt-20 '>
@@ -13,9 +14,10 @@ export default function MiddleSectionThree({newRestItemsFour}) {
                  <div className='mx-auto sm:col-span-2 lg:col-span-3 sm:mt-14 '>
                         <ReadMoreButton/>
                 </div>
-                </div>
-            <div className='bg-red-900 order-1 sm:order-2 sm:w-1/5 h-96 mb-20'>
-                
+            </div>
+            <div className='relative overflow-hidden  order-1 sm:order-2 sm:w-1/5 -mt-36'>
+          
+                 <SliderSmall bets={bets}/>
             </div>
            
     </section>

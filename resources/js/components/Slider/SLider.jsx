@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SliderTitle from './SliderTitle'
+
 import SliderItem from './SliderItem'
 import Title from '../Title'
 import { data } from './data.jsx'

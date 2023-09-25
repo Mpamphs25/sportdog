@@ -1,25 +1,29 @@
+import { defineConfig } from 'vite';
+ import laravel from 'laravel-vite-plugin';
+ import react from '@vitejs/plugin-react';
+ import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
+ export default defineConfig({
+     plugins: [
+        laravel({
+           input: ['resources/css/app.css', 'resources/js/app.jsx'],
+            ssr: 'resources/js/ssr.jsx',
+            refresh: true,
+        }),
+        react(),
+        viteCommonjs()
+    ],
+    
+    
+ });
+
+
 // import { defineConfig } from 'vite';
 // import laravel from 'laravel-vite-plugin';
 // import react from '@vitejs/plugin-react';
-
+ 
 // export default defineConfig({
 //     plugins: [
-//         laravel({
-//             input: ['resources/css/app.css', 'resources/js/app.js'],
-//             refresh: true,
-//         }),
-//         react()
+//         laravel(['resources/css/app.css', 'resources/js/app.jsx'],),
+//         react(),
 //     ],
 // });
-
-
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import react from '@vitejs/plugin-react';
- 
-export default defineConfig({
-    plugins: [
-        laravel(['resources/css/app.css', 'resources/js/app.jsx']),
-        react(),
-    ],
-});

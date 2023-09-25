@@ -5,6 +5,7 @@ import {RiDoubleQuotesL} from 'react-icons/ri'
 
 const url = 'https://randomuser.me/api/?results=3'
 export default function Bloggers() {
+   
     const [user,setUser] = useState([]);
     const [names,setNames] = useState([])
     const [pictures,setPictures] = useState([])
@@ -22,10 +23,7 @@ export default function Bloggers() {
    
    const {results} = user;
   
-//   console.log(results)
-//     results?.forEach(element => {
-//         console.log(element)
-//     });
+
  
     useEffect(()=>{
         getUsers()
